@@ -34,44 +34,6 @@ int main ()
 
 
 
-
-
-//============== Ver: ==========================================================
-//  Ver:    ipc_string -> class Data -> vec<Data> -> map <int, Data>
-/*
-def_alloc      alloc_inst      (shm.get_segment_manager());
-vecAllocator   vector_allocator (shm.get_segment_manager());
-
-MyMap* mymap = shm.construct<MyMap>("MyMap")(std::less<int>(),alloc_inst);
-vec*   myvec = shm.construct<vec>("myvec")(vector_allocator);
-// vec *myvec   = segment.construct<vec>("myvec")(std::less<int>(), vectorallocator);
-
-
-Data dat00(alloc_inst);
-dat00.Label = "first----";
-dat00.X = 125;
-dat00.Y = 205;
-
-Data dat01(alloc_inst);
-dat01.Label = "second";
-dat01.X = 52;
-dat01.Y = 68;
-
-Data dat02(alloc_inst);
-dat02.Label = "third - string sadasdasdssssssssssss";
-dat02.X = 14;
-dat02.Y = 5;
-
-
-myvec->push_back(dat00);
-myvec->push_back(dat01);
-myvec->push_back(dat02);
-
-
-std::pair<const int, vec> my_pair = std::make_pair(5, (*myvec));
-mymap->insert(my_pair);
- */
-//==============================================================================
 //==============================================================================
 // Ver:    ipc_string -> class Data -> map <int, Data>
 
@@ -79,11 +41,6 @@ void_alloc  alloc_inst (shm.get_segment_manager());
 
 MyMap* mymap = shm.construct<MyMap>("MyMap")(std::less<int>(),alloc_inst);
 
-/*
-Data* pData00   = shm.construct<Data>("data01")(alloc_inst);
-Data* pData01   = shm.construct<Data>("data02")(alloc_inst);
-Data* pData02   = shm.construct<Data>("data03")(alloc_inst);
-*/
 
 Data dat00(alloc_inst);
 dat00.Label = "first----";
@@ -108,16 +65,11 @@ def02.size = 7;
 def02.width = 154;
 
 
-
-dat00.defects.push_back(def00);
-dat00.defects.push_back(def01);
-dat00.defects.push_back(def02);
 // положим в вектор
-/*
 dat00.defects.push_back(def00);
 dat00.defects.push_back(def01);
 dat00.defects.push_back(def02);
-*/
+
 
 Data dat01(alloc_inst);
 dat01.Label = "second";

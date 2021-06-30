@@ -20,25 +20,6 @@ class Defect;
 namespace bi  = boost::interprocess;
 using segment = bi::managed_shared_memory::segment_manager;
 
-//==============================================================================
-/*
-// Ver:    ipc_string -> class Data -> vec<Data> -> map <int, Data>
-// template <typename Type> using myAlloc = bi::allocator<Type, segment>;
-
-using def_alloc  = bi::allocator<void, segment>;   
-using char_allocator = bi::allocator<char, bi::managed_shared_memory::segment_manager>;
-using ipc_string     = bi::basic_string<char, std::char_traits<char>, char_allocator>;                          // работает
-
-
-
-using vecAllocator = bi::allocator<Data, bi::managed_shared_memory::segment_manager> ;
-
-using vec = bi::vector<Data, vecAllocator>;
-
-using ValueType = std::pair<const int, vec>;
-using ShmemAllocator = bi::allocator<ValueType, bi::managed_shared_memory::segment_manager>;
-using MyMap = bi::multimap<int, vec, std::less<int>, ShmemAllocator>;
-*/
 
 //==============================================================================
 // Ver:    ipc_string -> class Data -> map <int, Data>
@@ -48,12 +29,11 @@ using void_alloc     = bi::allocator<void, segment>;                            
 using char_allocator = bi::allocator<char, bi::managed_shared_memory::segment_manager>;       // работает
 using ipc_string     = bi::basic_string<char, std::char_traits<char>, char_allocator>;        // работает
 
-// для класса Defect
-// using defect_allocator  = bi::allocator<Defect, bi::managed_shared_memory::segment_manager> ;
 
 // для определения вектора хранящего данные класса Defect
-using defect_allocator  = bi::allocator<Defect, bi::managed_shared_memory::segment_manager> ;
-using ipc_vector_Defect = bi::vector<Defect, defect_allocator>;
+using defect_allocator  = bi::allocator<Defect, bi::managed_shared_memory::segment_manager> ;  // работает
+using ipc_vector_Defect = bi::vector<Defect, defect_allocator>;                                // работает
+
 
 
 // для класса Data
